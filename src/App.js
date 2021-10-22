@@ -4,6 +4,8 @@ import './App.css';
 import Home from './Home';
 import Header from './Header';
 import AppContext from "./context"
+import TextInputWithFocusButton from "./TextInputWithFocusButton"
+
 
 function App() {
 
@@ -16,8 +18,9 @@ function App() {
   return (
     <div className="App">
       <AppContext.Provider value={{state:state,func:func}}>
-      <Home />
-      <Header/>
+      {/*<Home />
+      <Header/>*/}
+      <TextInputWithFocusButton/>
       </AppContext.Provider>
     
  
