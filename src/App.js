@@ -5,6 +5,7 @@ import Home from './Home';
 import Header from './Header';
 import AppContext from "./context"
 import TextInputWithFocusButton from "./TextInputWithFocusButton"
+import Paginate from './Paginate';
 
 
 function App() {
@@ -17,11 +18,7 @@ function App() {
   }
   return (
     <div className="App">
-      <AppContext.Provider value={{state:state,func:func}}>
-      {/*<Home />
-      <Header/>*/}
-      <TextInputWithFocusButton/>
-      </AppContext.Provider>
+    <Paginate/>
     
  
     </div>

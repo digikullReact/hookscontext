@@ -1,8 +1,10 @@
 import {useRef,useState,useEffect} from "react";
 
 import axios from "axios";
+import Loader from "react-loader-spinner";
 
 function TextInputWithFocusButton() {
+    const [showLoader,setShowLoader]=useState(false);
 
 
 
@@ -15,18 +17,20 @@ function TextInputWithFocusButton() {
     }
 
     useEffect(() => {
+        setShowLoader(true);
 
-        axios.get("https://jsonplaceholder.typicode.com/todos/1").then(data=>{
-
-        }).catch(err=>{
-            
-        })
+     
 
         async function foo(){
             try{
-              const something=  await axios.get("https://jsonplaceholder.typicode.com/todos/1");
+              const something=  await axios.get("https://jsonplaceholder.typicode.com/todos");
               console.log(something.data);
               setState(something.data);
+              setTimeout(()=>{
+                setShowLoader(false);
+
+              },2000)
+             
 
             }
             catch(err){
@@ -68,6 +72,17 @@ function TextInputWithFocusButton() {
     }
     return (
       <>
+{
+    showLoader?<Loader
+    type="Puff"
+    color="#00BFFF"
+    height={100}
+    width={100}
+    timeout={30000} //3 secs
+  />:""
+}
+
+
         <input ref={inputEl}  value={state} type="text"  onChange={handleChange}/>
         
         <div style={state?style:style2} ref={divRef}  id="div">
