@@ -6,6 +6,7 @@ import Header from './Header';
 import AppContext from "./context"
 import TextInputWithFocusButton from "./TextInputWithFocusButton"
 import Paginate from './Paginate';
+import Auth from './Auth';
 
 
 function App() {
@@ -18,7 +19,9 @@ function App() {
   }
   return (
     <div className="App">
-    <Paginate/>
+      {/**  <Paginate/> */}
+  
+    <Auth/>
     
  
     </div>
